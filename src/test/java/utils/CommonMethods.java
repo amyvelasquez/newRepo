@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,8 +24,19 @@ public class CommonMethods {
         switch (ConfigReader.getPropertyValue("browser")){
             case "chrome":
                 //System.setProperty("webdriver.chrome.driver", "src/drivers/chromedriver.exe");
+
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                if(ConfigReader.getPropertyValue("headless").equals("true")){
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.setHeadless(true);
+                    driver = new ChromeDriver(chromeOptions);
+                }else{
+                    driver = new ChromeDriver();
+                }
+
+
+                WebDriverManager.chromedriver().setup();
+             //   driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
               //  System.setProperty("webdriver.gecko.driver", "src/drivers/geckodriver.exe");
@@ -32,7 +44,7 @@ public class CommonMethods {
                 driver = new FirefoxDriver();
                 break;
             default:
-                throw new RuntimeException("Inavlid name of browser");
+                throw new RuntimeException("Invalid name of browser");
         }
 
         driver.get(ConfigReader.getPropertyValue("url"));
