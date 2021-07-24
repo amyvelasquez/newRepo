@@ -5,6 +5,9 @@ Feature: Syntax HRMS API Workflow
 
   Background:
     Given a JWT is generated
+  @Random
+  Scenario: Creating Dynamic Employee
+    Given a request is prepared to create an employee with dynamic data "Estela", "Vazquez", "A", "F", "1997-09-03", "Employee", "Automation Engineer"
 
   Scenario: Creating an Employee
     Given a request is prepared to create an employee

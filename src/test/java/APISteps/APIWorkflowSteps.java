@@ -30,7 +30,8 @@ public class APIWorkflowSteps {
 
         request = given().header(APIConstants.Header_Content_type, APIConstants.Content_type)
                 .header(APIConstants.Header_Authorization, GenerateTokenSteps.token)
-                .body(APIPayloadConstants.createEmployeePayload());
+                .body(APIPayloadConstants.createEmployeeBodyMoreDynamic("Estela", "Vazquez", "A",
+                        "F", "1997-09-03", "Employee", "Automation Engineer"));
 
     }
 
@@ -111,5 +112,13 @@ public class APIWorkflowSteps {
         String empID = response.body().jsonPath().getString(responseEmpID);
         Assert.assertEquals(empID, employee_id);
 
+    }
+
+    @Given("a request is prepared to create an employee with dynamic data {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void a_request_is_prepared_to_create_an_employee_with_dynamic_data(String firstName, String lastName, String middleName, String gender, String birthday, String employeeStatus, String jobTitle) {
+        request = given().header(APIConstants.Header_Content_type, APIConstants.Content_type)
+                .header(APIConstants.Header_Authorization, GenerateTokenSteps.token)
+                .body(APIPayloadConstants.createEmployeeBodyMoreDynamic(firstName, lastName, middleName,
+                        gender, birthday, employeeStatus, jobTitle));
     }
 }
