@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2000000,
+              "duration": 3532000000,
               "status": "passed"
             },
             "line": 7,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-07-24T17:32:03.215Z",
+        "start_timestamp": "2021-07-24T18:09:18.241Z",
         "line": 9,
         "name": "Creating Dynamic Employee",
         "description": "",
@@ -34,11 +34,44 @@
         "steps": [
           {
             "result": {
-              "status": "undefined"
+              "duration": 38000000,
+              "status": "passed"
             },
             "line": 10,
             "name": "a request is prepared to create an employee with dynamic data \"Estela\", \"Vazquez\", \"A\", \"F\", \"1997-09-03\", \"Employee\", \"Automation Engineer\"",
-            "match": {},
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Estela\"",
+                  "offset": 62
+                },
+                {
+                  "val": "\"Vazquez\"",
+                  "offset": 72
+                },
+                {
+                  "val": "\"A\"",
+                  "offset": 83
+                },
+                {
+                  "val": "\"F\"",
+                  "offset": 88
+                },
+                {
+                  "val": "\"1997-09-03\"",
+                  "offset": 93
+                },
+                {
+                  "val": "\"Employee\"",
+                  "offset": 107
+                },
+                {
+                  "val": "\"Automation Engineer\"",
+                  "offset": 119
+                }
+              ],
+              "location": "APISteps.APIWorkflowSteps.a_request_is_prepared_to_create_an_employee_with_dynamic_data(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+            },
             "keyword": "Given "
           }
         ],
@@ -60,6 +93,7 @@
         "steps": [
           {
             "result": {
+              "duration": 113000000,
               "status": "passed"
             },
             "line": 7,
@@ -72,7 +106,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-07-24T17:32:03.374Z",
+        "start_timestamp": "2021-07-24T18:09:21.997Z",
         "line": 12,
         "name": "Creating an Employee",
         "description": "",
@@ -82,6 +116,7 @@
         "steps": [
           {
             "result": {
+              "duration": 9000000,
               "status": "passed"
             },
             "line": 13,
@@ -93,7 +128,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 139000000,
               "status": "passed"
             },
             "line": 14,
@@ -105,6 +140,7 @@
           },
           {
             "result": {
+              "duration": 98000000,
               "status": "passed"
             },
             "line": 15,
@@ -122,6 +158,7 @@
           },
           {
             "result": {
+              "duration": 194000000,
               "status": "passed"
             },
             "line": 16,
@@ -143,6 +180,7 @@
           },
           {
             "result": {
+              "duration": 148000000,
               "status": "passed"
             },
             "line": 17,
@@ -174,6 +212,7 @@
         "steps": [
           {
             "result": {
+              "duration": 127000000,
               "status": "passed"
             },
             "line": 7,
@@ -186,7 +225,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-07-24T17:32:03.405Z",
+        "start_timestamp": "2021-07-24T18:09:22.742Z",
         "line": 19,
         "name": "Retrieving created employee",
         "description": "",
@@ -196,6 +235,7 @@
         "steps": [
           {
             "result": {
+              "duration": 30000000,
               "status": "passed"
             },
             "line": 20,
@@ -207,6 +247,7 @@
           },
           {
             "result": {
+              "duration": 494000000,
               "status": "passed"
             },
             "line": 21,
@@ -218,6 +259,7 @@
           },
           {
             "result": {
+              "duration": 5000000,
               "status": "passed"
             },
             "line": 22,
@@ -235,6 +277,7 @@
           },
           {
             "result": {
+              "duration": 92000000,
               "status": "passed"
             },
             "line": 23,
@@ -252,6 +295,7 @@
           },
           {
             "result": {
+              "duration": 60000000,
               "status": "passed"
             },
             "line": 24,

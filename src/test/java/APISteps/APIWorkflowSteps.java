@@ -10,6 +10,7 @@ import static io.restassured.RestAssured.*;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+import utils.APICommonMethods;
 import utils.APIConstants;
 import utils.APIPayloadConstants;
 
@@ -28,10 +29,7 @@ public class APIWorkflowSteps {
     @Given("a request is prepared to create an employee")
     public void a_request_is_prepared_to_create_an_employee() {
 
-        request = given().header(APIConstants.Header_Content_type, APIConstants.Content_type)
-                .header(APIConstants.Header_Authorization, GenerateTokenSteps.token)
-                .body(APIPayloadConstants.createEmployeeBodyMoreDynamic("Estela", "Vazquez", "A",
-                        "F", "1997-09-03", "Employee", "Automation Engineer"));
+        APICommonMethods.createEmployeeRequest(APIPayloadConstants.createEmployeeBody());
 
     }
 
@@ -83,23 +81,23 @@ public class APIWorkflowSteps {
 
     @Then("the retrieved employee ID {string} matches the globally stored employee ID")
     public void the_retrieved_employee_id_matches_the_globally_stored_employee_id(String empIDFromResponse) {
-        String tempEmpID=response.jsonPath().getString(empIDFromResponse);
+        String tempEmpID = response.jsonPath().getString(empIDFromResponse);
         Assert.assertEquals(employee_id, tempEmpID);
     }
 
     @Then("the retrieved data at {string} matches the data used to create an employee with employee ID {string}")
     public void the_retrieved_data_at_matches_the_data_used_to_create_an_employee_with_employee_id(String empObject, String responseEmpID, DataTable dataTable) {
 
-        List<Map<String,String>> expectedData = dataTable.asMaps(String.class, String.class);
+        List<Map<String, String>> expectedData = dataTable.asMaps(String.class, String.class);
 
         Map<String, String> actualData = response.body().jsonPath().get(empObject);
 
         int index = 0;
 
-        for(Map<String, String> map : expectedData) {
+        for (Map<String, String> map : expectedData) {
 
             Set<String> keys = map.keySet();
-            for(String key : keys) {
+            for (String key : keys) {
 
                 String expectedValue = map.get(key);
                 String actualValue = actualData.get(key);
@@ -107,7 +105,7 @@ public class APIWorkflowSteps {
                 Assert.assertEquals(expectedValue, actualValue);
 
             }
-            index ++;
+            index++;
         }
         String empID = response.body().jsonPath().getString(responseEmpID);
         Assert.assertEquals(empID, employee_id);
